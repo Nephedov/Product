@@ -7,9 +7,9 @@ public class ProductRepositoryTest {
 
     ProductRepository repo = new ProductRepository();
     ProductManager manager = new ProductManager(repo);
-    Product product1 = new Product(1, "Product 1", 100);
-    Product product2 = new Product(2, "Product 2", 200);
-    Product product3 = new Product(3, "Product 3", 300);
+    Product product1 = new Product(1, "Product1", 100);
+    Product product2 = new Product(2, "Product2", 200);
+    Product product3 = new Product(3, "Product3", 300);
 
     Book book1 = new Book(4, "Book4", 400, "Author4");
     Book book2 = new Book(5, "Book5", 500, "Author5");
@@ -36,9 +36,41 @@ public class ProductRepositoryTest {
 
 
     @Test
-    void searchByIdTest() {
+    void searchBySmartphoneTest() {
+        Product[] expected = {phone2};
+        Product[] actual = manager.searchBy("Man8");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void searchBySmartphone2Test() {
         Product[] expected = {phone2};
         Product[] actual = manager.searchBy("Phone8");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void searchByBookTest() {
+        Product[] expected = {book2};
+        Product[] actual = manager.searchBy("Author5");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void searchByBook2Test() {
+        Product[] expected = {book2};
+        Product[] actual = manager.searchBy("Book5");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void searchByProductTest() {
+        Product[] expected = {product1};
+        Product[] actual = manager.searchBy("Product1");
 
         Assertions.assertArrayEquals(expected, actual);
     }
