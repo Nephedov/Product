@@ -5,7 +5,7 @@ public class ProductRepository {
 
 
     public void saveProduct(Product product) {
-        if(findById(product.getId()) != null) {
+        if (findById(product.getId()) != null) {
             throw new AlreadyExistsException();
         }
         Product[] tmp = new Product[products.length + 1];
@@ -23,11 +23,12 @@ public class ProductRepository {
     }
 
     public Product findById(int id) {
-        for (Product product:products) {
+        for (Product product : products) {
             if (product.getId() == id) {
                 return product;
             }
-        } return null;
+        }
+        return null;
     }
 
     public void removeById(int id) {

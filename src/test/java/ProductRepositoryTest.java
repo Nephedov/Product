@@ -63,11 +63,15 @@ public class ProductRepositoryTest {
 
     @Test
     void removeByIdExceptionTest() {
-        Assertions.assertThrows(NotFoundException.class, () -> {repo.removeById(10);});
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.removeById(10);
+        });
     }
 
     @Test
     void addExceptionTest() {
-        Assertions.assertThrows(AlreadyExistsException.class, () -> {manager.add(product1);});
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            manager.add(product1);
+        });
     }
 }
