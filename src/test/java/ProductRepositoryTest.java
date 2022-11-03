@@ -60,4 +60,9 @@ public class ProductRepositoryTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void removeByIdExceptionTest() {
+        Assertions.assertThrows(NotFoundException.class, () -> {repo.removeById(10);});
+    }
 }
