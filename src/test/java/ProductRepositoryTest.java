@@ -60,4 +60,18 @@ public class ProductRepositoryTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void removeByIdExceptionTest() {
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.removeById(10);
+        });
+    }
+
+    @Test
+    void addExceptionTest() {
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            manager.add(product1);
+        });
+    }
 }
